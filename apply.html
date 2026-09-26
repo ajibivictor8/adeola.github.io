@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Undergraduate admission application form">
+<title>Undergraduate Admission Application</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="brand-mark" aria-hidden="true">ISU</div>
+    <div><h1 id="universityName">IGNITE SCHOLARS UNIVERSITY</h1><p>Undergraduate Admission Application Portal</p></div>
+  </div>
+</header>
+<main class="container main-content">
+  <section class="hero"><div><span class="eyebrow">2026 Admission Exercise</span><h2>Application Form</h2><p>Complete the five steps below. Your progress is saved automatically on this device.</p></div></section>
+  <div class="progress-wrap" aria-label="Application progress"><div class="progress-meta"><strong id="stepLabel">Step 1 of 5</strong><span id="progressPercent">20%</span></div><div class="progress-track"><div id="progressBar" class="progress-bar" style="width:20%"></div></div></div>
+  <form id="applicationForm" enctype="multipart/form-data" novalidate>
+    <section class="step active" data-step="1"><div class="card"><h3>Step 1 — Personal Information</h3><div class="grid">
+      <label>Surname *<input name="surname" required autocomplete="family-name"></label><label>First Name *<input name="first_name" required autocomplete="given-name"></label><label>Other Names<input name="other_names"></label>
+      <label>Gender *<select name="gender" required><option value="">Select</option><option>Male</option><option>Female</option></select></label><label>Date of Birth *<input type="date" name="date_of_birth" required></label><label>Nationality *<input name="nationality" value="Nigerian" required></label>
+      <label>State of Origin *<input name="state_of_origin" required></label><label>LGA *<input name="lga" required></label><label>Phone *<input name="phone" type="tel" required autocomplete="tel"></label>
+      <label>Email *<input name="email" type="email" required autocomplete="email"></label><label class="span-2">Permanent Address *<textarea name="permanent_address" rows="3" required></textarea></label>
+      <label>Next of Kin Name *<input name="next_of_kin_name" required></label><label>Next of Kin Phone *<input name="next_of_kin_phone" type="tel" required></label>
+    </div></div></section>
+
+    <section class="step" data-step="2"><div class="card"><h3>Step 2 — JAMB &amp; Programme Details</h3><div class="grid">
+      <label>JAMB Registration Number *<input name="jamb_reg_no" required></label><label>UTME Score *<input name="utme_score" type="number" min="0" max="400" required></label>
+      <label>Mode of Entry *<select name="mode_of_entry" id="modeOfEntry" required><option value="">Select</option><option value="UTME">UTME</option><option value="Direct Entry">Direct Entry</option></select></label>
+      <label>Preferred Faculty *<select name="preferred_faculty" id="faculty" required><option value="">Select faculty</option></select></label>
+      <label class="span-2">Preferred Course *<input name="preferred_course" required placeholder="e.g. Geography"></label>
+    </div><p class="hint">Course names are entered as text so the portal can accommodate programme changes; verify eligibility against the university's current admission requirements.</p></div></section>
+
+    <section class="step" data-step="3"><div class="card"><h3>Step 3 — Academic Background</h3><div class="grid">
+      <label>O'Level Type *<select name="olevel_type" required><option value="">Select</option><option>WAEC</option><option>NECO</option><option>GCE</option></select></label>
+      <label>Number of Sittings *<select name="sittings" required><option value="">Select</option><option value="1">1</option><option value="2">2</option></select></label>
+    </div>
+    <h4>O'Level Subjects and Grades</h4><p class="hint">English Language and Mathematics are required rows. Add four or more other subjects.</p>
+    <div class="subject-table"><table><thead><tr><th>Subject</th><th>Grade</th></tr></thead><tbody id="subjectsBody"></tbody></table></div>
+    <div id="directEntryFields" class="conditional" hidden><h4>Direct Entry Details</h4><div class="grid"><label>Qualification *<input name="de_qualification" data-de-required="true"></label><label>Institution *<input name="de_institution" data-de-required="true"></label><label>Year Obtained *<input name="de_year" type="number" min="1950" max="2100" data-de-required="true"></label><label>Qualification/Result Details<textarea name="de_result" rows="3" data-de-required="true"></textarea></label></div></div>
+    </div></section>
+
+    <section class="step" data-step="4"><div class="card"><h3>Step 4 — Document Upload</h3><p class="hint">Passport: JPG/PNG up to 100KB. Other documents: PDF/JPG/PNG up to 5MB each.</p>
+      <div class="upload-grid">
+        <div class="upload-card"><label>Passport Photograph *<input id="passport" name="passport" type="file" accept="image/jpeg,image/png" required></label><div id="passportPreview" class="passport-preview">Live preview</div><div id="passportInfo" class="file-info"></div></div>
+        <label class="upload-card">O'Level Result *<input name="olevel_result" type="file" accept="application/pdf,image/jpeg,image/png" required><span class="file-info"></span></label>
+        <label class="upload-card">Birth Certificate / Age Declaration *<input name="birth_certificate" type="file" accept="application/pdf,image/jpeg,image/png" required><span class="file-info"></span></label>
+        <label class="upload-card">JAMB Result Slip *<input name="jamb_result" type="file" accept="application/pdf,image/jpeg,image/png" required><span class="file-info"></span></label>
+      </div>
+    </div></section>
+
+    <section class="step" data-step="5"><div class="card"><h3>Step 5 — Review &amp; Declaration</h3><div id="reviewSummary" class="review"></div><label class="declaration"><input id="declaration" name="declaration" type="checkbox" required> <span>I declare that the information provided is true and correct to the best of my knowledge.</span></label><div id="submitError" class="form-error" role="alert"></div></div></section>
+
+    <div class="form-actions"><button type="button" id="prevBtn" class="btn secondary" hidden>Back</button><button type="button" id="nextBtn" class="btn primary">Continue</button><button type="submit" id="submitBtn" class="btn primary" hidden><span class="spinner" aria-hidden="true"></span> Submit Application</button></div>
+  </form>
+</main>
+<footer class="site-footer"><div class="container"><strong id="footerUniversity">IGNITE SCHOLARS UNIVERSITY</strong><span>Admissions Office</span><span>Phone: <a href="tel:+2348033517445">+234 803 351 7445</a></span><span>Email: <a href="mailto:admissions@isuife.edu.ng">admissions@isuife.edu.ng</a></span></div></footer>
+<script src="script.js"></script>
+</body></html>
